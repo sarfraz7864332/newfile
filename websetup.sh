@@ -23,10 +23,7 @@ echo "done"
 echo
 echo "downloading artifact"
 echo
-if [ -e $tmp/*]
-then 
-rm -rf $tmp/*
-fi
+source /root/p1/a.sh
 cd $tmp
 wget $url
 unzip *.zip
@@ -35,10 +32,7 @@ echo "removing previus html file"
 echo
 echo "loading atrifact in httpd service"
 echo
-if [ -e /var/www/html/*]
-rm -r /var/www/html/*
-then 
-fi
+source /root/p1/b.sh
 filename=$(ls $tmp| grep -v *.zip)
 echo $filename
 cp -r $tmp/$filename/* /var/www/html/
