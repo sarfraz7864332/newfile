@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Testing Jenkins') {
+            steps {
+                script {
+                    def ip = sh(script: 'hostname -I | cut -d " " -f 2', returnStdout: true).trim()
+                    echo "Hostname:"
+                    sh 'hostname'
+                    echo "Memory Usage:"
+                    sh 'free -m'
+                    echo "Jenkins server address: http://${ip}:8080/"
+                }
+            }
+        }
+    }
+}
