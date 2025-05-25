@@ -4,10 +4,10 @@ LABEL maintainer="your-email@example.com"
 LABEL description="Apache web server with custom website"
 
 # Install required tools
-RUN dnf update -y && \
-    dnf install -y wget unzip git && \
-    dnf clean all
-
+RUN apt update -y && \
+    apt install wget unzip git -y
+    
+RUN rm -r /usr/local/apache2/htdocs/*
 # Download and extract website template
 RUN wget -q https://www.tooplate.com/zip-templates/2135_mini_finance.zip && \
     unzip 2135_mini_finance.zip && \
