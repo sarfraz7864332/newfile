@@ -40,7 +40,7 @@ echo "done"
 systemctl restart $service
 echo 
 echo "####################################################"
-ifconfig | grep inet | sed -n '2p'
+echo "access the webpage from $(hostname -i)"
 echo "#####################################################"
 
 
