@@ -9,7 +9,7 @@ RUN dnf update -y && \
     dnf clean all
 
 # Download and extract website template
-RUN wget -q https://www.tooplate.com/zip-templates/2135_mini_finance.zip && \
+RUN wget -q $Tooplate && \
     unzip 2135_mini_finance.zip && \
     cp -r 2135_mini_finance/* /usr/local/apache2/htdocs/ && \
     rm -rf 2135_mini_finance.zip 2135_mini_finance
