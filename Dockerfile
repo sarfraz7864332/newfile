@@ -4,8 +4,11 @@ LABEL maintainer="your-email@example.com"
 LABEL description="Apache web server with custom website"
 
 # Install required tools
-RUN apt update -y && \
-    apt install wget unzip git -y
+RUN  apt install -y ntp
+     systemctl enable ntp
+     systemctl start ntp
+     apt update -y && \
+     apt install wget unzip git -y
     
 RUN rm -r /usr/local/apache2/htdocs/*
 # Download and extract website template
